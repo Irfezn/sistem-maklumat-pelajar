@@ -9,6 +9,7 @@
 <body>
     <div class="content" align="center">
         <h1>Selamat Datang Ke Sistem Maklumat Pelajar SKM</h1>
+        <p>Sila pilih kohort yang berkenaan</p>
         <button><a href="">Kohort 2022</a></button>
         <button><a href="">Kohort 2023</a></button>
         <button><a href="">Kohort 2024</a></button>
