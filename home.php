@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Laman Utama</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles/home.css">
 </head>
 <body>
     <div class="content" align="center">
