@@ -1,27 +1,27 @@
 <?php
-session_start();
-include('config.php');
+    session_start();
+    include('config.php');
 
-$error = '';
+    $error = '';
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $ic = mysqli_real_escape_string($conn, $_POST['ic']);
-    $password = mysqli_real_escape_string($conn, $_POST['password']);
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $ic = mysqli_real_escape_string($conn, $_POST['ic']);
+        $password = mysqli_real_escape_string($conn, $_POST['password']);
 
-    $sql = "SELECT * FROM users WHERE ic = '$ic' AND password = '$password'";
-    $result = mysqli_query($conn, $sql);
+        $sql = "SELECT * FROM users WHERE ic = '$ic' AND password = '$password'";
+        $result = mysqli_query($conn, $sql);
 
-    if (mysqli_num_rows($result) == 1) {
-        $row = mysqli_fetch_assoc($result);
-        $_SESSION['user_name'] = $row['name'];
-        $_SESSION['role'] = $row['role'];
+        if (mysqli_num_rows($result) == 1) {
+            $row = mysqli_fetch_assoc($result);
+            $_SESSION['user_name'] = $row['name'];
+            $_SESSION['role'] = $row['role'];
 
-        header("Location: home.php");
-        exit;
-    } else {
-        $error = "IC atau kata laluan salah!";
+            header("Location: home.php");
+            exit;
+        } else {
+            $error = "IC atau kata laluan salah!";
+        }
     }
-}
 ?>
 
 <!DOCTYPE html>
