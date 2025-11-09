@@ -11,9 +11,9 @@
         <h1>Selamat Datang Ke Sistem Maklumat Pelajar SKM</h1>
         <p>Sila pilih kohort yang berkenaan</p>
         <div class="button-group">
-            <a href="#" class="btn">Kohort 2022</a>
-            <a href="#" class="btn">Kohort 2023</a>
-            <a href="#" class="btn">Kohort 2024</a>
+            <a href="lists/2022.php" class="btn">Kohort 2022</a>
+            <a href="lists/2023.php" class="btn">Kohort 2023</a>
+            <a href="lists/2024.php" class="btn">Kohort 2024</a>
         </div>
     </div>
 </body>
