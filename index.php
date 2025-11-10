@@ -1,40 +1,30 @@
 <?php
 session_start();
-include("config.php"); // sambung DB kamu
+include("config.php"); // sambung ke database kamu
 
-if(isset($_POST['login'])){
+if (isset($_POST['login'])) {
     $name = $_POST['name'];
     $ic = $_POST['ic'];
     $password = $_POST['password'];
 
-    // semak dalam jadual users
+    // semak data pengguna dalam jadual users
     $sql = "SELECT * FROM users WHERE name=? AND ic=?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("ss", $name, $ic);
     $stmt->execute();
     $result = $stmt->get_result();
 
-    if($result->num_rows === 1){
-        $user = $result->fetch_assoc();
+    if ($result->num_rows === 1) {
+        $user = $result->fetch_assoc(); // <-- ubah dari $name ke $user
 
-        // kalau nak guna password hash:
-        if(password_verify($password, $user['password'])){
+        // sebab password dalam DB bukan hash, guna semakan biasa
+        if ($password == $user['password']) {
             $_SESSION['name'] = $user['name'];
             $_SESSION['role'] = $user['role'];
 
-            header("Location: home.php"); // terus ke page home
-            exit();
-        } 
-        // kalau kamu belum guna password hash dan guna plaintext dalam DB, tukar ke bawah:
-        /*
-        if($password == $user['password']){
-            $_SESSION['name'] = $user['name'];
-            $_SESSION['role'] = $user['role'];
             header("Location: home.php");
             exit();
-        }
-        */
-        else {
+        } else {
             $error = "Kata laluan salah!";
         }
     } else {
@@ -46,22 +36,44 @@ if(isset($_POST['login'])){
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="UTF-8">
   <title>Login Sistem</title>
   <style>
-    body { font-family: Arial; background-color: #f4f4f4; }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+    }
     .container {
-      width: 350px; margin: 100px auto; background: #fff;
-      padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      width: 350px;
+      margin: 100px auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
     input[type=text], input[type=password] {
-      width: 100%; padding: 8px; margin: 5px 0; border: 1px solid #ccc; border-radius: 5px;
+      width: 100%;
+      padding: 8px;
+      margin: 5px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
     }
     button {
-      width: 100%; background: #007bff; color: white; border: none;
-      padding: 10px; border-radius: 5px; cursor: pointer;
+      width: 100%;
+      background: #007bff;
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
     }
-    button:hover { background: #0056b3; }
-    .error { color: red; text-align: center; }
+    button:hover {
+      background: #0056b3;
+    }
+    .error {
+      color: red;
+      text-align: center;
+    }
   </style>
 </head>
 <body>

@@ -1,0 +1,90 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom right, #007bff, #00d4ff);
+    margin: 0;
+    padding: 20px;
+    min-height: 95.5vh;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #4ae798;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.add-btn {
+    background: #28a745;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.add-btn:hover {
+    background: #218838;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+thead th {
+    background: #343a40;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+td, th {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+td.nama {
+    text-align: left;
+}
+
+tr:nth-child(even) {
+    background: #f2f2f2;
+}
+
+/* Warna merah untuk pelajar tak layak */
+tr.not-eligible {
+    background-color: #f8d7da !important;
+}
+
+.btn {
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: white;
+    font-size: 14px;
+}
+
+.btn.edit {
+    background: #ffc107;
+}
+
+.btn.delete {
+    background: #dc3545;
+}
+
+.btn.edit:hover {
+    background: #e0a800;
+}
+
+.btn.delete:hover {
+    background: #c82333;
+}
