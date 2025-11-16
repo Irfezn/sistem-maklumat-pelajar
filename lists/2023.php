@@ -27,7 +27,7 @@
 
         <div class="">
             <?php if ($isAdmin): ?>
-                <button class="add-btn">Add +</button>
+                <a href='add.php?kohort=2023' class='add-btn'>Add +</a>
             <?php endif; ?>
             <a href="../home.php" class="add-btn">Back</a>
         </div>
@@ -60,8 +60,8 @@
 
                     if ($isAdmin) {
                         echo "<td>
-                                <a href='edit.php?id={$row['ic']}' class='btn edit'>Edit</a>
-                                <a href='delete.php?id={$row['ic']}' class='btn delete' onclick='return confirm(\"Padam data ini?\")'>Delete</a>
+                                <a href='edit.php?id={$row['ic']}&kohort=2023' class='btn edit'>Edit</a>
+                                <a href='delete.php?id={$row['ic']}&kohort=2023' class='btn delete' onclick='return confirm(\"Padam data ini?\")'>Delete</a>
                               </td>";
                     }
 
