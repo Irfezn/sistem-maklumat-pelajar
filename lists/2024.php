@@ -7,7 +7,7 @@
         exit;
     }
 
-    $isAdmin = ($_SESSION['role'] === 'admin');
+    $isAdmin = ((int)$_SESSION['role'] === 1);
 
     $sql = "SELECT * FROM students WHERE kohort = 2024";
     $result = mysqli_query($conn, $sql);
@@ -19,14 +19,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Senarai | K2024</title>
-    <link rel="stylesheet" href="../styles/lists.css">
+    <link rel="stylesheet" href="../styles/list.css">
 </head>
 <body>
     <div class="nav">
         <h2>Senarai Kohort 2024</h2>
-        <?php if ($isAdmin): ?>
-            <button class="add-btn">Add +</button>
-        <?php endif; ?>
+
+        <div class="">
+            <?php if ($isAdmin): ?>
+                <button class="add-btn">Add +</button>
+            <?php endif; ?>
+            <a href="../home.php" class="add-btn">Back</a>
+        </div>
     </div>
 
     <table>

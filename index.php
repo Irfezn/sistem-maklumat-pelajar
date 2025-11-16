@@ -3,14 +3,13 @@ session_start();
 include("config.php"); // sambung ke database kamu
 
 if (isset($_POST['login'])) {
-    $name = $_POST['name'];
     $ic = $_POST['ic'];
     $password = $_POST['password'];
 
     // semak data pengguna dalam jadual users
-    $sql = "SELECT * FROM users WHERE name=? AND ic=?";
+    $sql = "SELECT * FROM users WHERE ic=?";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ss", $name, $ic);
+    $stmt->bind_param("s", $ic);
     $stmt->execute();
     $result = $stmt->get_result();
 
@@ -83,9 +82,6 @@ if (isset($_POST['login'])) {
     <?php if(isset($error)) echo "<p class='error'>$error</p>"; ?>
 
     <form method="POST" action="">
-      <label>Nama:</label><br>
-      <input type="text" name="name" required><br>
-
       <label>No. IC:</label><br>
       <input type="text" name="ic" required><br>
 

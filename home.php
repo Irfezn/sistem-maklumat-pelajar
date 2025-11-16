@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Laman Utama</title>
-    <link rel="stylesheet" href="styles/home.css">
+    <link rel="stylesheet" href="styles/rumah.css">
 </head>
 <body>
     <div class="content" align="center">
@@ -15,6 +15,8 @@
             <a href="lists/2023.php" class="btn">Kohort 2023</a>
             <a href="lists/2024.php" class="btn">Kohort 2024</a>
         </div>
+
+        <a href="logout.php" class="btn lg">Log Keluar</a>
     </div>
 </body>
 </html>
